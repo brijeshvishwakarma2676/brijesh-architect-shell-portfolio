@@ -99,7 +99,27 @@ export default function ProjectDetail() {
           <p className="text-sm text-zinc-600 mb-6 leading-relaxed">
             {project.architectureDescription}
           </p>
-          <Diagram type="architecture" projectSlug={project.slug} />
+
+          {project.architectureDiagrams ? (
+            <div className="space-y-12">
+              {project.architectureDiagrams.map((diag, idx) => (
+                <div
+                  key={idx}
+                  className="border-t border-light-200 pt-8 first:border-0 first:pt-0"
+                >
+                  <h4 className="text-sm font-bold text-dark-700 mb-2 uppercase tracking-wider">
+                    {diag.label}
+                  </h4>
+                  <p className="text-xs text-zinc-500 mb-4">
+                    {diag.description}
+                  </p>
+                  <Diagram type={diag.type} projectSlug={project.slug} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <Diagram type="architecture" projectSlug={project.slug} />
+          )}
         </Section>
 
         {/* Database Considerations */}
