@@ -1,0 +1,211 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, monospace;
+  
+  /* Principal Engineer Palette: Strict Monochrome */
+  --color-dark-900: #000000;
+  --color-dark-800: #171717;
+  --color-dark-700: #262626;
+  --color-dark-600: #404040;
+  
+  --color-light-50: #ffffff;
+  --color-light-100: #fafafa;
+  --color-light-200: #e5e5e5;
+  --color-light-300: #d4d4d4;
+  
+  /* High Contrast Text */
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: #52525b;
+  --color-text-tertiary: #71717a;
+  
+  /* System Status Colors (Functional only) */
+  --color-accent: #000000; /* Black for primary actions */
+  --color-accent-hover: #262626;
+  --color-success: #16a34a;
+  --color-warning: #ea580c;
+  --color-error: #dc2626;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-light-50);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+}
+
+p {
+  color: var(--color-text-secondary);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  background-color: var(--color-light-100);
+  padding: 0.125rem 0.375rem;
+  border: 1px solid var(--color-light-200);
+  border-radius: 0.25rem;
+  color: var(--color-dark-800);
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  color: inherit;
+}
+
+/* Layout Utilities */
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* Component: Cards (Technical/Minimal) */
+.card-enhanced, .project-card, .methodology-step, .skill-category {
+  background-color: white;
+  border: 1px solid var(--color-light-200);
+  border-radius: 0; /* Sharp corners for technical feel */
+  padding: 2rem;
+  transition: border-color 0.2s ease;
+}
+
+.card-enhanced:hover, .project-card:hover, .methodology-step:hover, .skill-category:hover {
+  border-color: var(--color-dark-900);
+  transform: none; /* No movement */
+  box-shadow: none; /* No shadow */
+}
+
+/* Component: Buttons (Utilitarian) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+}
+
+.btn-primary {
+  background-color: var(--color-dark-900);
+  color: white;
+  border: 1px solid var(--color-dark-900);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-dark-700);
+  border-color: var(--color-dark-700);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--color-dark-900);
+  border: 1px solid var(--color-light-200);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-dark-900);
+  background-color: var(--color-light-50);
+}
+
+/* Component: Badges (Technical Tags) */
+.badge-enhanced, .badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.125rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  background-color: var(--color-light-100);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-light-200);
+}
+
+/* Section Headers (Architectural) */
+.section-header {
+  margin-bottom: 4rem;
+  border-top: 1px solid var(--color-light-200);
+  padding-top: 1.5rem;
+}
+
+.section-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.section-description {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  max-width: 42rem;
+  line-height: 1.6;
+}
+
+/* Utility: Gradient Text (Removed/Reset) */
+.gradient-text {
+  color: var(--color-dark-900);
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+/* Grid Pattern Background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, var(--color-light-200) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-light-200) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
