@@ -48,7 +48,7 @@ export default function TerminalBox() {
             "Core Stack: " + SKILLS.map((s) => s.skills.join(", ")).join(", ");
           break;
         case "contact":
-          response = `Email: ${SITE_CONFIG.email} // LinkedIn: brijesh-v`;
+          response = `Email: ${SITE_CONFIG.email} // LinkedIn: brijesh-vishwakarma-813128276`;
           break;
         case "resume":
           response = "Fetching document... [Link: /resume.pdf] Access Granted.";
