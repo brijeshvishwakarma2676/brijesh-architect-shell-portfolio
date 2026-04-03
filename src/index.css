@@ -29,9 +29,9 @@
   --color-error: #dc2626;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* html {
+  scroll-behavior: smooth; removed for Lenis
+} */
 
 body {
   background-color: var(--color-light-50);
@@ -40,6 +40,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 /* Typography Overrides */

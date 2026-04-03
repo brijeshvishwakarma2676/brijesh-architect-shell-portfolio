@@ -8,6 +8,7 @@ import PhilosophyPage from "./pages/PhilosophyPage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import TerminalLoader from "./components/TerminalLoader";
+import SmoothScroll from "./components/SmoothScroll";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,16 +33,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/experience" element={<ExperiencePage />} />
-          <Route path="/philosophy" element={<PhilosophyPage />} />
-          <Route path="/projects/:slug" element={<ProjectDetail />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+      <SmoothScroll>
+        <ScrollToTop />
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/experience" element={<ExperiencePage />} />
+            <Route path="/philosophy" element={<PhilosophyPage />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </SmoothScroll>
     </BrowserRouter>
   );
 }
