@@ -1,25 +1,24 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { getProjectBySlug } from "../data/projects";
 import Diagram from "../components/Diagram";
 import CodeBlock from "../components/CodeBlock";
 import NotFound from "./NotFound";
-import { useScrollReveal } from "../hooks/useScrollReveal";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
-  const revealRef = useScrollReveal();
+  const navigate = useNavigate();
 
   if (!project) {
     return <NotFound />;
   }
 
   return (
-    <article className="section-padding" ref={revealRef}>
+    <article className="section-padding">
       <div className="container-custom">
         {/* Back Link */}
-        <Link
-          to="/"
+        <button
+          onClick={() => navigate(-1)}
           className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-accent transition-colors mb-10 group"
         >
           <svg
@@ -36,10 +35,10 @@ export default function ProjectDetail() {
             />
           </svg>
           Back to projects
-        </Link>
+        </button>
 
         {/* Header */}
-        <header className="mb-16" data-reveal>
+        <header className="mb-16">
           <div className="section-label mb-4">Project Deep Dive</div>
           <h1 className="text-2xl sm:text-3xl font-bold text-dark-700 mb-4 text-balance leading-tight">
             {project.title}
@@ -69,8 +68,6 @@ export default function ProjectDetail() {
             {project.technicalHighlights.map((highlight, index) => (
               <div
                 key={index}
-                data-reveal
-                data-reveal-delay={Math.min(index + 1, 3)}
               >
                 <div className="flex items-start gap-4 mb-3">
                   <span className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent text-xs font-bold shrink-0 mt-0.5">
@@ -137,8 +134,6 @@ export default function ProjectDetail() {
               <div
                 key={index}
                 className="card-enhanced"
-                data-reveal
-                data-reveal-delay={Math.min(index + 1, 3)}
               >
                 {/* Context */}
                 <p className="text-sm text-zinc-600 mb-4">
@@ -197,7 +192,7 @@ export default function ProjectDetail() {
         <Section title="Failures & Lessons Learned">
           <div className="space-y-10">
             {project.failures.map((failure, index) => (
-              <div key={index} className="group" data-reveal>
+              <div key={index} className="group">
                 {/* Alert Header */}
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center">
@@ -271,8 +266,6 @@ export default function ProjectDetail() {
               <li
                 key={index}
                 className="text-sm text-zinc-600 flex items-start gap-3"
-                data-reveal
-                data-reveal-delay={Math.min(index + 1, 3)}
               >
                 <span className="w-6 h-6 rounded-lg bg-accent/10 flex items-center justify-center text-accent shrink-0 mt-0.5">
                   <svg
@@ -297,7 +290,7 @@ export default function ProjectDetail() {
 
         {/* If I Were Rebuilding This Today */}
         <Section title="If I Were Rebuilding This Today">
-          <div className="card-enhanced" data-reveal>
+          <div className="card-enhanced">
             <div className="flex items-start gap-3">
               <svg
                 className="w-6 h-6 text-accent shrink-0 mt-1"
@@ -321,8 +314,8 @@ export default function ProjectDetail() {
 
         {/* Footer Navigation */}
         <footer className="mt-20 pt-8 border-t border-light-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
-          <Link
-            to="/"
+          <button
+            onClick={() => navigate(-1)}
             className="hover:text-accent transition-colors flex items-center gap-2 group"
           >
             <svg
@@ -339,7 +332,7 @@ export default function ProjectDetail() {
               />
             </svg>
             View other projects
-          </Link>
+          </button>
           <div className="flex gap-4 text-xs font-mono opacity-50">
             <span>#system-design</span>
             <span>#backend-engineering</span>
@@ -352,7 +345,7 @@ export default function ProjectDetail() {
 
 function Section({ title, children }) {
   return (
-    <section className="mb-20" data-reveal>
+    <section className="mb-20">
       <h3 className="section-label mb-6 pb-3 border-b border-light-200">
         {title}
       </h3>

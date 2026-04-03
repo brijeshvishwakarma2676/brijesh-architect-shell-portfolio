@@ -74,8 +74,7 @@ export default function Contact() {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className={`contact-link justify-between stagger-${idx + 1}`}
-              data-reveal
+              className="contact-link justify-between"
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-light-200 flex items-center justify-center text-zinc-500">

@@ -7,9 +7,9 @@ export default function FeaturedProjects() {
     return projects.map((project, idx) => (
       <Link
         key={project.id}
+        id={`project-${project.slug}`}
         to={`/projects/${project.slug}`}
-        className={`group block stagger-${(idx % 6) + 1}`}
-        data-reveal
+        className="group block"
       >
         <article className="h-full border border-light-200 bg-white p-8 transition-colors duration-300 hover:border-dark-900 flex flex-col justify-between">
           <div>

@@ -24,11 +24,7 @@ export default function KeyImpact() {
 
   const renderedImpacts = useMemo(() => {
     return impacts.map((item, idx) => (
-      <div 
-        key={item.title} 
-        className={`group stagger-${idx + 1}`}
-        data-reveal
-      >
+      <div key={item.title} className="group">
         <h3 className="text-lg font-bold text-dark-900 mb-3 group-hover:underline decoration-1 underline-offset-4">
           {item.title}
         </h3>

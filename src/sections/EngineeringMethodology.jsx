@@ -42,11 +42,7 @@ export default function EngineeringMethodology() {
         {/* Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((item, idx) => (
-            <div 
-              key={item.step} 
-              className={`group cursor-default stagger-${idx + 1}`}
-              data-reveal
-            >
+            <div key={item.step} className="group cursor-default">
               <span className="block font-mono text-4xl font-bold text-light-200 mb-6 group-hover:text-dark-900 transition-colors duration-300">
                 {item.step}
               </span>

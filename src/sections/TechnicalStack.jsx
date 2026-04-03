@@ -4,11 +4,7 @@ import { SKILLS } from "../data/constants";
 export default function TechnicalStack() {
   const renderedSkills = useMemo(() => {
     return SKILLS.map((group, idx) => (
-      <div 
-        key={group.category} 
-        data-reveal 
-        className={`stagger-${(idx % 6) + 1}`}
-      >
+      <div key={group.category}>
         <h3 className="text-sm font-bold text-dark-900 uppercase tracking-wider mb-6 pb-2 border-b border-light-200">
           {group.category}
         </h3>

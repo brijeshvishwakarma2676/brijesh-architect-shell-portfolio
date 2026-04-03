@@ -6,7 +6,6 @@ import ProjectDetail from "./pages/ProjectDetail";
 import ExperiencePage from "./pages/ExperiencePage";
 import PhilosophyPage from "./pages/PhilosophyPage";
 import NotFound from "./pages/NotFound";
-import ScrollToTop from "./components/ScrollToTop";
 import TerminalLoader from "./components/TerminalLoader";
 import SmoothScroll from "./components/SmoothScroll";
 
@@ -34,7 +33,6 @@ function App() {
   return (
     <BrowserRouter>
       <SmoothScroll>
-        <ScrollToTop />
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
