@@ -77,8 +77,12 @@ export default function TechnicalValues() {
 
         {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {values.map((value) => (
-            <div key={value.title} className="group">
+          {values.map((value, idx) => (
+            <div 
+              key={value.title} 
+              className={`group stagger-${idx + 1}`}
+              data-reveal
+            >
               {/* Icon */}
               <div className="w-12 h-12 bg-light-100 border border-light-200 flex items-center justify-center text-dark-900 mb-6 group-hover:bg-dark-900 group-hover:text-white transition-colors duration-300">
                 {value.icon}

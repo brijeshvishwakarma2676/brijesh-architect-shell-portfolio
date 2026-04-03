@@ -68,13 +68,14 @@ export default function Contact() {
 
         {/* Contact Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-          {contactLinks.map((link) => (
+          {contactLinks.map((link, idx) => (
             <a
               key={link.label}
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener noreferrer" : undefined}
-              className="contact-link justify-between"
+              className={`contact-link justify-between stagger-${idx + 1}`}
+              data-reveal
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-light-200 flex items-center justify-center text-zinc-500">

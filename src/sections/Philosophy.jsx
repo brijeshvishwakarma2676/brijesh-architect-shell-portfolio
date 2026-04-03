@@ -20,7 +20,11 @@ export default function Philosophy() {
         {/* Philosophy Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {philosophy.map((item, index) => (
-            <article key={index} className="card-enhanced group">
+            <article 
+              key={index} 
+              className={`card-enhanced group stagger-${(index % 6) + 1}`}
+              data-reveal
+            >
               {/* Number Badge */}
               <div className="flex items-center gap-4 mb-4">
                 <span className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent font-bold text-sm group-hover:bg-accent group-hover:text-white transition-all">

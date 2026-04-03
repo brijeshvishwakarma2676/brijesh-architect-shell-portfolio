@@ -1,5 +1,7 @@
+import { useMemo } from "react";
+
 export default function KeyImpact() {
-  const impacts = [
+  const impacts = useMemo(() => [
     {
       title: "Backend Excellence",
       description:
@@ -18,7 +20,35 @@ export default function KeyImpact() {
         "Passionate about observability and robust error handling. I believe in 'Designing for Failure' to ensure services remain resilient under varying load conditions.",
       metrics: ["Zero-Downtime Focus", "Observability Enthusiast"],
     },
-  ];
+  ], []);
+
+  const renderedImpacts = useMemo(() => {
+    return impacts.map((item, idx) => (
+      <div 
+        key={item.title} 
+        className={`group stagger-${idx + 1}`}
+        data-reveal
+      >
+        <h3 className="text-lg font-bold text-dark-900 mb-3 group-hover:underline decoration-1 underline-offset-4">
+          {item.title}
+        </h3>
+        <p className="text-sm text-zinc-600 leading-relaxed mb-6 font-light">
+          {item.description}
+        </p>
+        <ul className="space-y-2">
+          {item.metrics.map((metric) => (
+            <li
+              key={metric}
+              className="flex items-center gap-2 text-xs font-mono text-dark-700 uppercase tracking-wide"
+            >
+              <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+              {metric}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ));
+  }, [impacts]);
 
   return (
     <section className="section-padding bg-white border-t border-light-200">
@@ -33,27 +63,7 @@ export default function KeyImpact() {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {impacts.map((item) => (
-            <div key={item.title} className="group">
-              <h3 className="text-lg font-bold text-dark-900 mb-3 group-hover:underline decoration-1 underline-offset-4">
-                {item.title}
-              </h3>
-              <p className="text-sm text-zinc-600 leading-relaxed mb-6 font-light">
-                {item.description}
-              </p>
-              <ul className="space-y-2">
-                {item.metrics.map((metric) => (
-                  <li
-                    key={metric}
-                    className="flex items-center gap-2 text-xs font-mono text-dark-700 uppercase tracking-wide"
-                  >
-                    <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                    {metric}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {renderedImpacts}
         </div>
       </div>
     </section>

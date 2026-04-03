@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="container-custom relative z-10">
         <div className="max-w-4xl">
           {/* Identity Line */}
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-8" data-reveal>
             <span className="h-px w-8 bg-dark-900"></span>
             <span className="font-mono text-sm font-medium tracking-widest uppercase text-dark-600">
               Brijesh Vishwakarma
@@ -17,13 +17,19 @@ export default function Hero() {
           </div>
 
           {/* Architectural Statement */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-dark-900 mb-8 leading-[1.05] tracking-tighter">
+          <h1 
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-dark-900 mb-8 leading-[1.05] tracking-tighter stagger-1"
+            data-reveal
+          >
             Designing systems that <br className="hidden sm:block" />
             survive success.
           </h1>
 
           {/* Technical Manifesto */}
-          <p className="text-xl sm:text-2xl text-dark-600 leading-relaxed mb-12 max-w-3xl font-light">
+          <p 
+            className="text-xl sm:text-2xl text-dark-600 leading-relaxed mb-12 max-w-3xl font-light stagger-2"
+            data-reveal
+          >
             Software Engineer Trainee specializing in FastAPI and Clean
             Architecture. I build scalable, efficient web services that power
             modern applications, focusing on performance, asynchronous APIs, and
@@ -31,7 +37,7 @@ export default function Hero() {
           </p>
 
           {/* Core Competencies (Text-only, no badges) */}
-          <div className="mb-12">
+          <div className="mb-12 stagger-3" data-reveal>
             <p className="font-mono text-xs uppercase tracking-widest text-dark-400 mb-4">
               Core Competencies
             </p>
@@ -45,7 +51,7 @@ export default function Hero() {
           </div>
 
           {/* CTA (Minimalist) */}
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-6 stagger-4" data-reveal>
             <a
               href="#featured-work"
               className="btn btn-primary rounded-none px-8 py-4 text-sm tracking-wide"
