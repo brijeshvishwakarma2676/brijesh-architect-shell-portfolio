@@ -82,8 +82,13 @@ export default function TerminalBox() {
 
   return (
     <div
-      className="w-full max-w-xl mx-auto mb-10 bg-black/90 border border-zinc-800 rounded-lg overflow-hidden shadow-2xl font-mono text-[11px] transition-all duration-300"
-      onClick={() => inputRef.current?.focus()}
+      className="w-full max-w-xl mx-auto mb-10 bg-black/90 border border-zinc-800 rounded-lg overflow-hidden shadow-2xl font-mono text-[11px] transition-all duration-300 cursor-text"
+      onMouseDown={() => {
+        // Only focus on desktop/mouse click
+        if (window.matchMedia('(pointer: fine)').matches) {
+          inputRef.current?.focus();
+        }
+      }}
     >
       {/* Terminal Header */}
       <div className="bg-zinc-800 px-4 py-2 flex items-center justify-between border-b border-zinc-700">
@@ -138,8 +143,8 @@ export default function TerminalBox() {
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
               className="bg-transparent border-none outline-none p-0 flex-1 text-zinc-300 pointer-events-auto"
-              autoFocus
               spellCheck="false"
+              autoComplete="off"
             />
           </div>
         )}
