@@ -31,12 +31,14 @@ export default function SmoothScroll({ children }) {
     }
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
       gestureDirection: 'vertical',
       smoothWheel: true,
-      syncTouch: true,
+      syncTouch: false, // Restore native touch momentum on mobile
+      touchMultiplier: 2,
+      wheelMultiplier: 1,
     });
 
     lenisRef.current = lenis;
